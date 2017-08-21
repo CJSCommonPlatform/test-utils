@@ -23,7 +23,22 @@ public class MessageConsumerFactory {
             final String queueUri,
             final String topicName) throws JMSException {
 
+        connectionFactory = new ActiveMQConnectionFactory(queueUri);
+        return createAndStart(connectionFactory, messageSelector, topicName);
+    }
+
+    public MessageConsumer createAndStart(
+            final ActiveMQConnectionFactory connectionFactory,
+            final String messageSelector,
+            final String topicName) throws JMSException {
+
+        this.connectionFactory = connectionFactory;
+        connection = connectionFactory.createConnection();
+
+        connection.start();
+
         session = jmsSessionFactory.session(queueUri);
+
         final ActiveMQTopic topic = new ActiveMQTopic(topicName);
         messageConsumer = session.createConsumer(
                 topic,
