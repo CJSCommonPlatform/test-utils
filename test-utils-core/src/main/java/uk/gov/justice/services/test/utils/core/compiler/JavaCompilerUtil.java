@@ -43,10 +43,12 @@ public class JavaCompilerUtil {
 
     private final File codegenOutputDir;
     private final File compilationOutputDir;
+    private final JavaCompiler compiler;
 
     public JavaCompilerUtil(final File codegenOutputDir, final File compilationOutputDir) {
         this.codegenOutputDir = codegenOutputDir;
         this.compilationOutputDir = compilationOutputDir;
+        this.compiler = ToolProvider.getSystemJavaCompiler();
     }
 
     /**
@@ -177,7 +179,6 @@ public class JavaCompilerUtil {
 
     private void compile() {
 
-        final JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
         final DiagnosticCollector<JavaFileObject> diagnostics = new DiagnosticCollector<>();
 
         try (final StandardJavaFileManager fileManager = compiler.getStandardFileManager(diagnostics, Locale.getDefault(), null)) {
