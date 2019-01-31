@@ -5,7 +5,7 @@ on [Keep a CHANGELOG](http://keepachangelog.com/). This project adheres to
 
 ## [Unreleased]
 
-## [1.20.0] - 2019-01-31
+## [1.21.0] - 2019-01-31
 
 ### Added
 - JsonObjectBuilderWrapper now supports adding JsonArray attribute
