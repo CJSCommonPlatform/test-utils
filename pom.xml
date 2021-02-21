@@ -16,6 +16,7 @@
     <packaging>pom</packaging>
 
     <modules>
+        <module>client-utils</module>
         <module>test-utils-core</module>
         <module>test-utils-logging-jdk</module>
         <module>test-utils-logging-log4j</module>
